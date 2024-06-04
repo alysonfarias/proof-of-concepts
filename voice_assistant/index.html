@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="/node_modules/socket.io/"></script>
+    <script>
+        const socket = io();
+        let recognition;
+
+        function startRecording() {
+            recognition = new webkitSpeechRecognition() || new SpeechRecognition(); // Cross-browser support
+            recognition.continuous = false; // Stop after the first utterance
+            recognition.lang = 'en-US'; // Set language preference
+
+            recognition.onstart = () => {
+                console.log('Listening...');
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                console.log('You said:', transcript);
+                socket.emit('voiceInput', transcript); // Send transcript to server
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+            };
+
+            recognition.start();
+        }
+
+        socket.on('assistantResponse', (response) => {
+            const utterance = new SpeechSynthesisUtterance(response);
+            speechSynthesis.speak(utterance); // Speak the assistant's response
+            // Alternatively, you could display the response in a text box
+        });
+    </script>
+</head>
+
+<body style="display: flex; justify-content: center; align-items: end; height: 100%; background-color: rgb(205, 246, 143);">
+
+    <button onclick="startRecording()">Speak</button>
+</body>
+
+</html>
