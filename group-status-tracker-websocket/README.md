@@ -23,3 +23,12 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Nodemon
+```
+npm i -g nodemon
+```
+
+```
+nodemon websocket
+```
+
