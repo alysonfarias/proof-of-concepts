@@ -1,5 +1,6 @@
 <template>
   <div class="chat-container">
+    <GroupStatus /> 
     <div v-if="!isConnected">
       <div class="modal-background">
         <div class="modal-content">
@@ -34,6 +35,7 @@
 
 <script>
 import { ref } from 'vue';
+import GroupStatus from './GroupStatus.vue';
 
 export default {
   setup() {
@@ -63,7 +65,10 @@ export default {
       newMessage.value = '';
     };
 
-    return { username, newMessage, messages, isConnected, connectToChat, sendMessage };
+    return { username, newMessage, messages, isConnected, connectToChat, sendMessage, GroupStatus };
   },
+  components: {
+    GroupStatus, // Register the GroupStatus component
+  }
 };
 </script>
