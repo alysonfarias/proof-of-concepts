@@ -34,3 +34,17 @@ var findDisappearedNumbers = function(nums) {
     }
     return arr
 };
+
+// simple to read
+var findDisappearedNumbers = function(nums) {
+    const missingNumbers = [];
+    const numSet = new Set(nums);
+  
+    for (let i = 1; i <= nums.length; i++) {
+      if (!numSet.has(i)) { 
+        missingNumbers.push(i); 
+      }
+    }
+  
+    return missingNumbers;
+};
