@@ -1,11 +1,6 @@
-class Person {
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-    }
-}
-
-class PersonFactory {
+// personFactory.js
+import Person from './person.js';
+export default class PersonFactory {
     constructor() {
         this.currentId = 0;
     }
