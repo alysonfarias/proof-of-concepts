@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // Target Environment
+    "target": "es2020", // Modern JavaScript output (adjust if needed)
+    "lib": ["es2020", "dom"], // Include DOM types if you're working with the browser
+    "module": "commonjs", // or "esnext" for ES Modules
+
+    // Strictness & Safety
+    "strict": true, // Enable all strict type checking options
+    "esModuleInterop": true, // Helps with CommonJS/ES module interop
+    "forceConsistentCasingInFileNames": true, // Prevent case-sensitive import issues
+    "skipLibCheck": true, // Skip type checking of declaration files (e.g., from node_modules)
+
+    // Additional Checks (Highly Recommended)
+    "noImplicitAny": true, // Disallow implicit 'any' types
+    "strictNullChecks": true, // Require explicit handling of null/undefined
+    "noImplicitReturns": true, // Ensure all code paths in functions return a value
+
+    // Module Resolution
+    "moduleResolution": "node", // Use Node.js module resolution strategy
+    "baseUrl": ".", // Base directory for resolving non-relative module names
+
+    // Source Maps (for Debugging)
+    "sourceMap": true, // Generate source maps for debugging
+
+    // Build Output
+    "outDir": "./dist", // Output directory for compiled JavaScript
+    "rootDir": "./src", // Root directory for your TypeScript source code
+
+    // Experimental Decorators (if using)
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src"], // Include all TypeScript files in the 'src' directory
+  "exclude": ["node_modules"] // Exclude the 'node_modules' directory
+}
